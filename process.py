@@ -5,14 +5,14 @@ def kinda_next(x):
         return None
 
 def process(data):
-    players = ["round", "submitter", "song"]
+    players = []
     for round in data:
         for song in round['songs']:
             submitter = song['submitter']
             if not submitter in players:
                 players.append(submitter)
 
-    print(";".join(players))
+    print("round;", "submitter;", "song;", ";".join(players))
 
     for i, round in enumerate(data):
         # Sort by players
