@@ -5,7 +5,7 @@ def kinda_next(x):
         return None
 
 def process(data):
-    players = []
+    players = ["round", "submitter", "song"]
     for round in data:
         for song in round['songs']:
             submitter = song['submitter']
@@ -27,7 +27,7 @@ def process(data):
             else:
                 song_name = song['name']
                 votes = [song['votes'].get(player, 0) for player in players]
-            print(f'{round_name if song_i == 0 else ""};{submitter};{song_name};{tab.join([str(vote) for vote in votes])}')
+            print(f'{round_name if song_i == 0 else ""};{submitter};"{song_name}";{tab.join([str(vote) for vote in votes])}')
 
 if __name__=='__main__':
     import json
